@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+}
+
+body{
+    background: rgb(241,223,183);
+}
+
+h1{
+    background: black;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.search-results{
+    margin: 2rem auto;
+}
+
+input{
+    padding: 1rem;
+    margin: 0 auto;
+    display: block;
+}
+
+.images{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.images img{
+    height: 200px;
+    width: 300px;
+    object-fit: cover;
+    margin: 2rem;
+}
