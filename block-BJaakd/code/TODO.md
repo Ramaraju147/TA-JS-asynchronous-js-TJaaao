@@ -2,18 +2,39 @@
 
 ```js
 // Your code
+let l1 = new Promise((resolve,reject) => {
+    setTimeout(() => {
+        resolve('Promise Resolved!')
+    },1000)
+})
+
+l1.then((response) => console.log(response))
 ```
 
 2. Create another promise. Now have it reject with a value of `Rejected Promise!` without using `setTimeout`. Print the contents of the promise after it has been rejected by passing console.log to `.catch`
 
 ```js
 // Your code
+let l2 = new Promise((resolve,reject) => {
+    setTimeout(() => {
+        reject('Rejected Promise!')
+    },1000)
+})
+
+l2.catch((error) => console.log(error))
 ```
 
 3. Create another promise. Now have it reject with a value of `Rejected Promise!` without using `setTimeout`. Print the contents of the promise after it has been rejected by passing console.log to `.catch` and also use `.finally` to log message `Promise Settled!`.
 
 ```js
 // Your code
+let l3 = new Promise((resolve,reject) => {
+    reject('Rejected Promise!')
+})
+
+l3.catch((error) => {console.log(error)}).finally(()=> {
+    console.log('Promise Settled!')
+})
 ```
 
 4. What will be the output of the code below.
@@ -29,11 +50,17 @@ Promise.resolve().then(() => console.log('C'));
 
 console.log('D');
 ```
+'A','D','C','B'
 
 5. Write a function named `wait` that accepts `time` in ms returns a promise. The promise gets resolved after given time.
 
 ```js
 // Your code
+function wait(time){
+return new Promise((resolve,reject) => {
+    setTimeout(()=>{resolve()},time)
+})
+}
 ```
 
 6. Do the following:
@@ -47,6 +74,11 @@ console.log('D');
 
 ```js
 // Your code
+Promise.resolve(21).then((response) => response+10).then((res) => res+100).then((res) => {
+    if(res>100){
+        throw new Error('Greater than expected')
+    }
+}).catch((err) => console.log(err))
 ```
 
 7. Do the following:
@@ -59,6 +91,16 @@ console.log('D');
 
 ```js
 // Your code
+Promise.resolve(['A']).then((res) => {
+    res.push('B')
+    return res
+    }).then((res) => {
+        let obj = {}
+        res.forEach((e,i) => {
+            obj[i] = e
+        })
+        return obj
+    }).then((res) => console.log(res))
 ```
 
 8. Do the following:
@@ -70,6 +112,17 @@ console.log('D');
 
 ```js
 // Your code
+let first = Promise.resolve(1)
+first.then((res) => {
+    console.log(res);
+    return 2;
+}).then((res) => {
+    console.log(res);
+    return 3;
+}).then((res) => {
+    console.log(res);
+    return 4;
+})
 ```
 
 9. Do the following:
@@ -81,9 +134,24 @@ console.log('D');
 
 ```js
 // Your code
+let first = Promise.resolve(1)
+first.then((res) => {
+    console.log(res);
+    return 2;
+})
+first.then((res) => {
+    console.log(res);
+    return 3;
+})
+first.then((res) => {
+    console.log(res);
+    return 4;
+})
 ```
 
 10. Try to understand the difference between the problem 8 and 9. Write your observation.
+
+without chaining response is not passed over to next then
 
 11. Do the following
 
@@ -94,4 +162,8 @@ console.log('D');
 
 ```js
 // Your code
+Promise.resolve('John').then(() => 'Arya').then((res)=> {
+    console.log(res)
+    return new Promise((resolve,reject) => setTimeout(()=> resolve('Bran'),2000))
+}).then((res) => console.log(res))
 ```
