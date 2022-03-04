@@ -19,7 +19,6 @@ function displayUI(data){
         let anchor = document.createElement("a")
         anchor.innerHTML = "Read More"
         anchor.href = d.url
-        anchor.setAttribute("target","_blank")
         div2.append(p,h5,anchor)
         div1.append(img,div2)
         news_feed.append(div1);
