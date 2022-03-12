@@ -1,0 +1,78 @@
+*{
+    box-sizing: border-box;
+}
+
+h2{
+    font-size: 1.5rem;
+}
+
+body{
+    background: rgb(106,117,215);
+    text-align: center;
+    position: relative;
+}
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.book{
+    padding: 2rem;
+    background-color: blanchedalmond;
+    border: 1px dotted red;
+    margin: 2rem;
+    height: 200px;
+    width: 400px;
+}
+
+.btn{
+    cursor: pointer;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    margin: 25% auto;
+  }
+
+  .pop-up{
+      margin: 0 auto;
+      background-color: rgb(60,136,138);
+      padding: 2rem;
+      position: absolute;
+      left:0;
+      right: 0;
+      top:0;
+      z-index: 100;
+  }
+
+  .books{
+      z-index: 50;
+  }
+
+  .char{
+      border: 1px solid white;
+      padding: 1rem;
+  }
+
+  .hidden{
+      display: none;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
